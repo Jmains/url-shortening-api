@@ -1,0 +1,26 @@
+.cta {
+  padding: 5rem 0;
+  background: var(--pri-darkViolet);
+  background-image: url("../../images/bg-boost-mobile.svg");
+}
+
+.cta__content {
+  text-align: center;
+}
+
+.cta__title {
+  color: white;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.cta__button {
+  border: none;
+  font-size: 1.25rem;
+  border-radius: 50px;
+  background: var(--pri-cyan);
+  color: white;
+  font-weight: 700;
+  padding: 0.75em 1.5em;
+  margin-top: 1.25rem;
+}
