@@ -38,11 +38,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 h1,
 h2,
 h3,
 p {
   margin: 0;
+}
+
+input {
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -51,6 +60,7 @@ a {
 
 button {
   border: none;
+  cursor: pointer;
 }
 
 code {
