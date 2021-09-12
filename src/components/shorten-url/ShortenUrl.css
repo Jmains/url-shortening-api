@@ -1,0 +1,27 @@
+.shorten__form {
+  background: var(--pri-darkViolet);
+  padding: 1.35rem;
+
+  border-radius: 8px;
+}
+
+.shorten__input {
+  display: block;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 0.8rem;
+  width: 100%;
+}
+
+.shorten__cta {
+  display: block;
+  border-radius: 5px;
+  width: 100%;
+  color: white;
+  font-weight: 700;
+  padding: 0.5em 1em;
+  font-size: 1.25rem;
+  background: var(--pri-cyan);
+  margin-top: 1.25rem;
+}
