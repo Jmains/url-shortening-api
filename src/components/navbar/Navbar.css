@@ -1,0 +1,93 @@
+.nav {
+  display: flex;
+  padding: 1rem 1.25rem;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.nav__logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--darkViolet);
+}
+
+.nav-toggle {
+  cursor: pointer;
+  border: 0;
+  width: 3em;
+  height: 3em;
+  padding: 0em;
+  transition: opacity 250ms ease;
+  background: transparent;
+}
+
+.nav__list {
+  visibility: hidden;
+  display: none;
+  background: var(--pri-darkViolet);
+  position: absolute;
+  top: 4.75rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  border-radius: 15px;
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+  list-style: none;
+}
+
+.nav__item + .nav__item {
+  margin-top: 1.5rem;
+}
+
+.nav__link {
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.nav__item--divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.178);
+}
+
+.nav__link--signup {
+  display: block;
+  background: var(--pri-cyan);
+  border-radius: 50px;
+  padding: 0.5rem 0;
+}
+
+.nav--visible {
+  display: block;
+  visibility: visible;
+}
+
+.hamburger {
+  width: 62%;
+  position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  margin: 0 auto;
+  height: 3px;
+  background-color: var(--grayViolet);
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  width: 100%;
+}
+
+.hamburger::before {
+  transform: translateY(-9px);
+}
+
+.hamburger::after {
+  transform: translateY(6px);
+}
