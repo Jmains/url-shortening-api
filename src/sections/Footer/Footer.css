@@ -1,0 +1,46 @@
+.footer {
+  background: var(--darkViolet);
+  padding: 3rem;
+}
+
+.footer__logo {
+  display: block;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+.footer__content {
+  text-align: center;
+}
+
+.footer__col {
+  margin-top: 3rem;
+}
+
+.footer__col--title {
+  color: white;
+  font-weight: 700;
+}
+
+.footer__col--linksContainer {
+  margin-top: 1.25rem;
+}
+
+.footer__col--item {
+  margin-top: 0.5rem;
+}
+
+.footer__col--link {
+  color: var(--gray);
+}
+
+.footer__col--socials {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__col--socialItem + .footer__col--socialItem {
+  margin-left: 1.5rem;
+}
