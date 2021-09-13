@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import LinkCard from "./LinkCard/LinkCard";
 import "./ShortenUrl.css";
+import cn from "classnames";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const fetchShortLink = async (link) => {
   const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${link}`, {
@@ -12,6 +14,7 @@ const fetchShortLink = async (link) => {
 export default function ShortenUrl() {
   const [link, setLink] = useState("");
   const [apiLinks, setApiLinks] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -30,6 +33,7 @@ export default function ShortenUrl() {
       return;
     }
 
+    setLoading(true);
     fetchShortLink(link)
       .then((responseData) => {
         if (responseData.ok) {
@@ -45,11 +49,13 @@ export default function ShortenUrl() {
       .catch((err) => {
         console.log("something went wrong...", err);
       });
+    setLoading(false);
   };
 
   const handleLinkChange = (ev) => {
     setLink(ev.target.value);
   };
+
   return (
     <div className="shorten">
       <div className="container">
@@ -58,12 +64,14 @@ export default function ShortenUrl() {
             value={link}
             onChange={handleLinkChange}
             placeholder="Shorten a link here..."
-            className="shorten__input"
+            className={cn("shorten__input", {
+              "shorten__input-error": error,
+            })}
             type="text"
           />
           {error && <span className="short__form--error">{error}</span>}
-          <button className="shorten__cta" type="submit">
-            Shorten It!
+          <button className="shorten__btn" type="submit">
+            {loading ? "loading..." : "Shorten It!"}
           </button>
         </form>
         {apiLinks.length > 0 &&

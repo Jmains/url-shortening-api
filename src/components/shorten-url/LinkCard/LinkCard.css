@@ -46,6 +46,10 @@
   margin-top: 0.75rem;
 }
 
+.link__card--copyLinkBtn:hover {
+  background: var(--pri-cyan-hover);
+}
+
 .link__card--copyLinkBtn-copied {
   display: block;
   font-size: 0.85rem;

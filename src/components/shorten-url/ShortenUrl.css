@@ -17,7 +17,15 @@
   padding: 1rem 0.75rem;
   width: 100%;
   color: var(--darkBlue);
-  border: 1px solid var(--darkBlue);
+  border: 2px solid var(--darkBlue);
+}
+
+.shorten__input-error {
+  border: 2px solid var(--sec-red);
+}
+
+.shorten__input-error::placeholder {
+  color: var(--sec-red);
 }
 
 .short__form--error {
@@ -29,7 +37,7 @@
   font-style: italic;
 }
 
-.shorten__cta {
+.shorten__btn {
   display: block;
   border-radius: 5px;
   width: 100%;
@@ -39,4 +47,8 @@
   font-size: 1.25rem;
   background: var(--pri-cyan);
   margin-top: 1rem;
+}
+
+.shorten__btn:hover {
+  background: var(--pri-cyan-hover);
 }
