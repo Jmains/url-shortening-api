@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import LinkCard from "./LinkCard/LinkCard";
 import "./ShortenUrl.css";
 import cn from "classnames";
-import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const fetchShortLink = async (link) => {
   const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${link}`, {
