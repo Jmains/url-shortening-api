@@ -1,8 +1,11 @@
 .shorten__form {
   background: var(--pri-darkViolet);
-  padding: 1.35rem;
-
+  background-image: url("../../images/bg-shorten-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: top right;
+  padding: 1.5rem;
   border-radius: 8px;
+  border: 1px solid var(--darkBlue);
 }
 
 .shorten__input {
@@ -10,8 +13,20 @@
   border: none;
   border-radius: 5px;
   font-size: 1rem;
-  padding: 0.8rem;
+  font-weight: 700;
+  padding: 1rem 0.75rem;
   width: 100%;
+  color: var(--darkBlue);
+  border: 1px solid var(--darkBlue);
+}
+
+.short__form--error {
+  color: var(--sec-red);
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-style: italic;
 }
 
 .shorten__cta {
@@ -20,8 +35,8 @@
   width: 100%;
   color: white;
   font-weight: 700;
-  padding: 0.5em 1em;
+  padding: 0.75em 1.25em;
   font-size: 1.25rem;
   background: var(--pri-cyan);
-  margin-top: 1.25rem;
+  margin-top: 1rem;
 }

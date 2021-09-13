@@ -3,7 +3,12 @@
   background: #f0f1f6;
 }
 
+.stats__shortenUrlWrapper {
+  margin-top: -10.35rem;
+}
+
 .stats__header {
+  margin-top: 5rem;
   text-align: center;
 }
 

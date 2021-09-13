@@ -2,10 +2,14 @@ import "./Statistics.css";
 import fullyCustomIcon from "../../images/icon-fully-customizable.svg";
 import brandRecognition from "../../images/icon-brand-recognition.svg";
 import detailedRecords from "../../images/icon-detailed-records.svg";
+import ShortenUrl from "../../components/shorten-url/ShortenUrl";
 
 export default function Statistics() {
   return (
     <section className="stats">
+      <div className="stats__shortenUrlWrapper">
+        <ShortenUrl />
+      </div>
       <div className="container">
         <div className="stats__header">
           <h2 className="stats__title">Advanced Statistics</h2>
