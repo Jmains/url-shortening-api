@@ -8,9 +8,14 @@
   text-align: center;
 }
 
+.hero__img {
+  width: 500px;
+}
+
 .hero__title {
   font-size: 2.5rem;
   line-height: 3rem;
+  color: var(--darkBlue);
 }
 
 .hero__description {
@@ -27,4 +32,30 @@
   font-size: 1.25rem;
   padding: 0.75em 1.5em;
   border-radius: 50px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .hero {
+    padding-top: 4rem;
+  }
+  .hero__contentContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .hero__content {
+    text-align: left;
+    order: -1;
+    width: 50%;
+  }
+
+  .hero__title {
+    font-size: 4rem;
+    line-height: 5rem;
+  }
+
+  .hero__img {
+    margin-left: 3rem;
+    width: 500px;
+  }
 }
