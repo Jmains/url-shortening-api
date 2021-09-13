@@ -9,7 +9,7 @@
 .nav__logo {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--darkViolet);
+  color: var(--darkBlue);
 }
 
 .nav-toggle {
@@ -22,11 +22,11 @@
   background: transparent;
 }
 
-.nav__list {
+.nav__listContainer {
+  position: absolute;
   visibility: hidden;
   display: none;
   background: var(--pri-darkViolet);
-  position: absolute;
   top: 4.75rem;
   left: 1.25rem;
   right: 1.25rem;
@@ -34,7 +34,15 @@
   margin: 0;
   padding: 2rem;
   text-align: center;
-  list-style: none;
+}
+
+.nav--visible {
+  display: block;
+  visibility: visible;
+}
+
+.nav__list-sec {
+  margin-top: 1.25rem;
 }
 
 .nav__item + .nav__item {
@@ -42,13 +50,14 @@
 }
 
 .nav__link {
-  color: white;
+  color: rgb(255, 255, 255);
   cursor: pointer;
   font-weight: 700;
 }
 
 .nav__item--divider {
   height: 1px;
+  margin-top: 1.25rem;
   background-color: rgba(255, 255, 255, 0.178);
 }
 
@@ -59,10 +68,7 @@
   padding: 0.5rem 0;
 }
 
-.nav--visible {
-  display: block;
-  visibility: visible;
-}
+/* HAMBURGER STYLES */
 
 .hamburger {
   width: 62%;
@@ -90,4 +96,74 @@
 
 .hamburger::after {
   transform: translateY(6px);
+}
+
+/* END HAMBURGER STYLES */
+
+@media only screen and (min-width: 700px) {
+  .nav {
+    justify-content: flex-start;
+  }
+
+  .nav-toggle {
+    display: none;
+    visibility: hidden;
+  }
+
+  .nav__listContainer {
+    position: static;
+    display: flex;
+    align-items: center;
+    visibility: visible;
+    background: transparent;
+    border-radius: 0;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    margin-left: 3.5rem;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+  }
+
+  .nav__item--divider {
+    display: none;
+    visibility: hidden;
+  }
+
+  .nav__list-pri {
+    display: flex;
+  }
+
+  .nav__list-sec {
+    display: flex;
+    margin-top: 0;
+    align-items: center;
+  }
+
+  .nav__item + .nav__item {
+    margin: 0;
+    margin-left: 1.5rem;
+  }
+
+  .nav__link {
+    color: var(--gray);
+  }
+
+  .nav__link:hover {
+    color: var(--darkBlue);
+  }
+
+  .nav__link--signup {
+    display: block;
+    background: var(--pri-cyan);
+    border-radius: 50px;
+    padding: 0.5rem 1em;
+    color: white;
+  }
+
+  .nav__link--signup:hover {
+    background: var(--pri-cyan-hover);
+    color: white;
+  }
 }
