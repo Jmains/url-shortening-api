@@ -9,7 +9,7 @@ export default function Navbar() {
   };
 
   return (
-    <header>
+    <header className="container">
       <nav className="nav">
         <a className="nav__logo" href="/">
           Shortly
@@ -18,34 +18,42 @@ export default function Navbar() {
           <span class="hamburger"></span>
         </button>
 
-        <ul class={navIsToggled ? "nav__list nav--visible" : "nav__list"}>
-          <li class="nav__item">
-            <a class="nav__link" href="/">
-              Features
-            </a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="/">
-              Pricing
-            </a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="/">
-              Resources
-            </a>
-          </li>
+        <div
+          className={navIsToggled ? "nav__listContainer nav--visible" : "nav__listContainer"}
+        >
+          <ul className="nav__list-pri">
+            <li class="nav__item">
+              <a class="nav__link" href="/">
+                Features
+              </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="/">
+                Pricing
+              </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="/">
+                Resources
+              </a>
+            </li>
+          </ul>
+
           <div className="nav__item nav__item--divider"></div>
-          <li class="nav__item">
-            <a class="nav__link" href="/">
-              Login
-            </a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link nav__link--signup" href="/">
-              Sign Up
-            </a>
-          </li>
-        </ul>
+
+          <ul className="nav__list-sec">
+            <li class="nav__item">
+              <a class="nav__link" href="/">
+                Login
+              </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link nav__link--signup" href="/">
+                Sign Up
+              </a>
+            </li>
+          </ul>
+        </div>
       </nav>
     </header>
   );
