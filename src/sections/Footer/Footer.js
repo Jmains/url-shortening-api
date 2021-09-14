@@ -1,8 +1,5 @@
 import "./Footer.css";
-import facebookIcon from "../../images/icon-facebook.svg";
-import twitterIcon from "../../images/icon-twitter.svg";
-import pinterestIcon from "../../images/icon-pinterest.svg";
-import instagramIcon from "../../images/icon-instagram.svg";
+import { Facebook, Instagram, Pinterest, Twitter } from "../../icons";
 
 export default function Footer() {
   return (
@@ -83,22 +80,22 @@ export default function Footer() {
             <ul className="footer__col--socials">
               <li className="footer__col--socialItem">
                 <a href="/" className="footer__col--socialLink">
-                  <img src={facebookIcon} alt="" srcset="" />
+                  <Facebook className="footer__col--link" />
                 </a>
               </li>
               <li className="footer__col--socialItem">
                 <a href="/" className="footer__col--socialLink">
-                  <img src={twitterIcon} alt="" srcset="" />
+                  <Twitter className="footer__col--link" />
                 </a>
               </li>
               <li className="footer__col--socialItem">
                 <a href="/" className="footer__col--socialLink">
-                  <img src={pinterestIcon} alt="" />
+                  <Pinterest className="footer__col--link" />
                 </a>
               </li>
               <li className="footer__col--socialItem">
                 <a href="/" className="footer__col--socialLink">
-                  <img src={instagramIcon} alt="" />
+                  <Instagram className="footer__col--link" />
                 </a>
               </li>
             </ul>
