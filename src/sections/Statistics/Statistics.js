@@ -1,8 +1,7 @@
 import "./Statistics.css";
-import fullyCustomIcon from "../../images/icon-fully-customizable.svg";
-import brandRecognition from "../../images/icon-brand-recognition.svg";
-import detailedRecords from "../../images/icon-detailed-records.svg";
 import ShortenUrl from "../../components/shorten-url/ShortenUrl";
+
+import { BrandRecognition, DetailedRecords, FullyCustomizable } from "../../icons";
 
 export default function Statistics() {
   return (
@@ -21,7 +20,7 @@ export default function Statistics() {
         <div className="stats__card--container">
           <div className="stats__card card1">
             <div className="stats__card--iconContainer">
-              <img className="stats__card--icon" src={brandRecognition} alt="" srcset="" />
+              <BrandRecognition className="stats__card--icon" />
             </div>
             <h3 className="stats__card--title">Brand Recognition</h3>
             <p className="stats__card--description">
@@ -32,7 +31,7 @@ export default function Statistics() {
           <div className="line"></div>
           <div className="stats__card card2">
             <div className="stats__card--iconContainer">
-              <img className="stats__card--icon" src={detailedRecords} alt="" srcset="" />
+              <DetailedRecords className="stats__card--icon" />
             </div>
             <h3 className="stats__card--title">Detailed Records</h3>
             <p className="stats__card--description">
@@ -43,7 +42,7 @@ export default function Statistics() {
           <div className="line"></div>
           <div className="stats__card card3">
             <div className="stats__card--iconContainer">
-              <img className="stats__card--icon" src={fullyCustomIcon} alt="" srcset="" />
+              <FullyCustomizable className="stats__card--icon" />
             </div>
             <h3 className="stats__card--title">Fully Customizable</h3>
             <p className="stats__card--description">
