@@ -1,6 +1,7 @@
 .hero {
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   padding-bottom: 10rem;
+  padding-top: 3rem;
 }
 
 .hero__content {
@@ -9,7 +10,7 @@
 }
 
 .hero__img {
-  width: 500px;
+  max-width: 100%;
 }
 
 .hero__title {
@@ -34,7 +35,11 @@
   border-radius: 50px;
 }
 
-@media only screen and (min-width: 1024px) {
+.hero__cta:hover {
+  background: var(--pri-cyan-hover);
+}
+
+@media only screen and (min-width: 1100px) {
   .hero {
     padding-top: 4rem;
   }
@@ -46,7 +51,7 @@
   .hero__content {
     text-align: left;
     order: -1;
-    width: 50%;
+    max-width: 48%;
   }
 
   .hero__title {
@@ -54,8 +59,13 @@
     line-height: 5rem;
   }
 
+  .hero__description {
+    font-size: 1.25rem;
+  }
+
   .hero__img {
-    margin-left: 3rem;
+    margin-left: 2rem;
     width: 500px;
+    max-height: 350px;
   }
 }

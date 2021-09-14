@@ -11,7 +11,7 @@ export default function Hero() {
             <h1 className="hero__title">More than just shorter links</h1>
             <p className="hero__description">
               Build your brand's recognition and get detailed insights on how your links are
-              performing
+              performing.
             </p>
             <button className="hero__cta">Get Started</button>
           </div>
