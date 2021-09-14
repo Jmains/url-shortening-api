@@ -1,16 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Navbar.css";
 import cn from "classnames";
+import throttle from "lodash.throttle";
 
 export default function Navbar() {
   const [navIsToggled, setNavIsToggle] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   const handleNavToggle = () => {
     setNavIsToggle((toggled) => !toggled);
   };
 
+  useEffect(() => {
+    const handleScroll = throttle(() => {
+      const offset = 10;
+      const { scrollTop } = document.documentElement;
+
+      const scrolled = scrollTop > offset;
+      setHasScrolled(scrolled);
+    }, 300);
+
+    handleScroll();
+    document.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="sticky-top">
+    <header
+      className={cn("sticky-top ", {
+        scrolled: hasScrolled,
+      })}
+    >
       <nav className="nav container">
         <a className="nav__logo" href="/">
           Shortly
