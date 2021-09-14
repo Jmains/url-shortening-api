@@ -4,11 +4,17 @@ import cn from "classnames";
 import throttle from "lodash.throttle";
 
 export default function Navbar() {
-  const [navIsToggled, setNavIsToggle] = useState(false);
+  const [navIsToggled, setNavIsToggled] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
   const handleNavToggle = () => {
-    setNavIsToggle((toggled) => !toggled);
+    setNavIsToggled((toggled) => !toggled);
+  };
+
+  const handleEscape = (ev) => {
+    if (ev.key === "Esc" || ev.key === "Escape") {
+      setNavIsToggled(false);
+    }
   };
 
   useEffect(() => {
@@ -22,9 +28,11 @@ export default function Navbar() {
 
     handleScroll();
     document.addEventListener("scroll", handleScroll);
+    document.addEventListener("keydown", handleEscape);
 
     return () => {
       document.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("keydown", handleEscape);
     };
   }, []);
 
@@ -38,7 +46,13 @@ export default function Navbar() {
         <a className="nav__logo" href="/">
           Shortly
         </a>
-        <button onClick={handleNavToggle} class="nav-toggle" aria-label="open navigation">
+        <button
+          type="button"
+          onClick={handleNavToggle}
+          class="nav-toggle"
+          aria-expanded={navIsToggled}
+          aria-label="open navigation"
+        >
           <span
             class={cn("hamburger ", {
               "hamburger-toggled": navIsToggled,
@@ -49,35 +63,39 @@ export default function Navbar() {
         <div
           className={navIsToggled ? "nav__listContainer nav--visible" : "nav__listContainer"}
         >
-          <button onClick={handleNavToggle} className="nav__dropdown-exit"></button>
+          <button
+            tabIndex="-1"
+            onClick={handleNavToggle}
+            className="nav__dropdown-exit"
+          ></button>
           <ul className="nav__list-pri">
             <li class="nav__item">
-              <a class="nav__link" href="/">
+              <a class="nav__link" href="/" tabIndex="0">
                 Features
               </a>
             </li>
             <li class="nav__item">
-              <a class="nav__link" href="/">
+              <a tabIndex="0" class="nav__link" href="/home">
                 Pricing
               </a>
             </li>
-            <li class="nav__item">
+            <li tabIndex="0" class="nav__item">
               <a class="nav__link" href="/">
                 Resources
               </a>
             </li>
           </ul>
 
-          <div className="nav__item nav__item--divider"></div>
+          <div role="separator" className="nav__item nav__item--divider"></div>
 
           <ul className="nav__list-sec">
             <li class="nav__item">
-              <a class="nav__link" href="/">
+              <a tabIndex="0" class="nav__link" href="/home">
                 Login
               </a>
             </li>
             <li class="nav__item">
-              <a class="nav__link nav__link--signup" href="/">
+              <a tabIndex="0" class="nav__link nav__link--signup" href="/">
                 Sign Up
               </a>
             </li>
