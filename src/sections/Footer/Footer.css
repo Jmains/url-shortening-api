@@ -36,9 +36,14 @@
   color: var(--gray);
 }
 
+.footer__col--link:hover {
+  color: var(--pri-cyan);
+}
+
 .footer__col--socials {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .footer__col--socialItem + .footer__col--socialItem {
