@@ -8,10 +8,12 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="container">
-        <a href="/" className="footer__logo">
-          Shortly
-        </a>
         <div className="footer__content">
+          <div className="footer__col footer__logoWrapper">
+            <a href="/" className="footer__logo">
+              Shortly
+            </a>
+          </div>
           <div className="footer__col">
             <p className="footer__col--title">Features</p>
             <ul className="footer__col--linksContainer">
@@ -77,7 +79,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="footer__col">
+          <div className="footer__col socials__col">
             <ul className="footer__col--socials">
               <li className="footer__col--socialItem">
                 <a href="/" className="footer__col--socialLink">
