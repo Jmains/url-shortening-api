@@ -51,7 +51,7 @@
 }
 
 .link__card--copyLinkBtn-copied {
-  display: block;
+  /* display: block;
   font-size: 0.85rem;
   text-align: center;
   width: 100%;
@@ -60,6 +60,41 @@
   border-radius: 5px;
   font-weight: 700;
   padding: 0.5em 1em;
-  margin-top: 0.75rem;
+  margin-top: 0.75rem; */
   background: var(--pri-darkViolet);
+}
+
+@media only screen and (min-width: 1024px) {
+  .divider {
+    display: none;
+    visibility: hidden;
+  }
+
+  .link__card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .link__card--originalLink {
+    width: 50%;
+    font-size: 0.9rem;
+  }
+
+  .link__card-lowerSection {
+    display: flex;
+    align-items: center;
+    width: 33%;
+  }
+
+  .link__card--shortLink {
+    margin-top: 0;
+    white-space: nowrap;
+    margin-right: 2rem;
+    font-size: 0.9rem;
+  }
+
+  .link__card--copyLinkBtn {
+    margin-top: 0;
+  }
 }

@@ -58,17 +58,19 @@ export default function ShortenUrl() {
   return (
     <div className="shorten">
       <div className="container">
-        <form onSubmit={handleSubmit} className="shorten__form" action="">
-          <input
-            value={link}
-            onChange={handleLinkChange}
-            placeholder="Shorten a link here..."
-            className={cn("shorten__input", {
-              "shorten__input-error": error,
-            })}
-            type="text"
-          />
-          {error && <span className="short__form--error">{error}</span>}
+        <form onSubmit={handleSubmit} className="shorten__form">
+          <div className="shorten__inputContainer">
+            <input
+              value={link}
+              onChange={handleLinkChange}
+              placeholder="Shorten a link here..."
+              className={cn("shorten__input", {
+                "shorten__input-error": error,
+              })}
+              type="text"
+            />
+            {error && <span className="short__form--error">{error}</span>}
+          </div>
           <button className="shorten__btn" type="submit">
             {loading ? "loading..." : "Shorten It!"}
           </button>
