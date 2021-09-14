@@ -15,11 +15,11 @@ export default function Statistics() {
           <h2 className="stats__title">Advanced Statistics</h2>
           <p className="stats__description">
             Track how your links are performing across the web with out advanced statistics
-            dashboard
+            dashboard.
           </p>
         </div>
         <div className="stats__card--container">
-          <div className="stats__card">
+          <div className="stats__card card1">
             <div className="stats__card--iconContainer">
               <img className="stats__card--icon" src={brandRecognition} alt="" srcset="" />
             </div>
@@ -30,7 +30,7 @@ export default function Statistics() {
             </p>
           </div>
           <div className="line"></div>
-          <div className="stats__card">
+          <div className="stats__card card2">
             <div className="stats__card--iconContainer">
               <img className="stats__card--icon" src={detailedRecords} alt="" srcset="" />
             </div>
@@ -41,7 +41,7 @@ export default function Statistics() {
             </p>
           </div>
           <div className="line"></div>
-          <div className="stats__card">
+          <div className="stats__card card3">
             <div className="stats__card--iconContainer">
               <img className="stats__card--icon" src={fullyCustomIcon} alt="" srcset="" />
             </div>
