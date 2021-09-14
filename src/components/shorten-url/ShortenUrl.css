@@ -17,11 +17,18 @@
   padding: 1rem 0.75rem;
   width: 100%;
   color: var(--darkBlue);
-  border: 2px solid var(--darkBlue);
+}
+
+.shorten__input:focus {
+  outline: 2px solid var(--pri-cyan);
+}
+
+.shorten__input:focus::placeholder {
+  color: var(--pri-darkViolet);
 }
 
 .shorten__input-error {
-  border: 2px solid var(--sec-red);
+  outline: 2px solid var(--sec-red);
 }
 
 .shorten__input-error::placeholder {
@@ -41,9 +48,10 @@
   display: block;
   border-radius: 5px;
   width: 100%;
+  white-space: nowrap;
   color: white;
   font-weight: 700;
-  padding: 0.75em 1.25em;
+  padding: 0.7em 1.25em;
   font-size: 1.25rem;
   background: var(--pri-cyan);
   margin-top: 1rem;
@@ -51,4 +59,29 @@
 
 .shorten__btn:hover {
   background: var(--pri-cyan-hover);
+}
+
+@media only screen and (min-width: 1024px) {
+  .shorten__form {
+    display: flex;
+    justify-content: space-between;
+    background-image: url("../../images/bg-shorten-desktop.svg");
+    background-repeat: no-repeat;
+    background-position: top right;
+    padding: 2.5rem;
+  }
+
+  .shorten__inputContainer {
+    width: 90%;
+  }
+  .shorten__input {
+    width: 96%;
+  }
+
+  .shorten__btn {
+    font-size: 1.25rem;
+    margin-top: 0;
+    width: 18%;
+    align-self: start;
+  }
 }
