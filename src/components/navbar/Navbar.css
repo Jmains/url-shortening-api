@@ -6,6 +6,12 @@
   height: 80px;
   background: rgb(255, 255, 255);
   z-index: 100;
+  transition-property: box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in;
+}
+
+.scrolled {
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.178);
 }
 
@@ -78,6 +84,13 @@
   color: rgb(255, 255, 255);
   cursor: pointer;
   font-weight: 700;
+  transition-property: color;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+}
+
+.nav__link:hover {
+  color: var(--pri-cyan);
 }
 
 .nav__item--divider {
@@ -91,6 +104,11 @@
   background: var(--pri-cyan);
   border-radius: 50px;
   padding: 0.5rem 0;
+}
+
+.nav__link--signup:hover {
+  color: white;
+  background: var(--pri-cyan-hover);
 }
 
 /* HAMBURGER STYLES */
