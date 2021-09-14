@@ -81,7 +81,6 @@ export default function Footer() {
               <li className="footer__col--socialItem">
                 <a href="/" className="footer__col--socialLink">
                   <Facebook className="footer__col--link" />
-                  {/* <img src={facebookIcon} alt="" srcset="" /> */}
                 </a>
               </li>
               <li className="footer__col--socialItem">
