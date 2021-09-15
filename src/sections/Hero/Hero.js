@@ -6,7 +6,9 @@ export default function Hero() {
     <section className="hero">
       <div className="container">
         <div className="hero__contentContainer">
-          <img className="hero__img" src={bgImg} alt="" />
+          <div className="align-center">
+            <img className="hero__img" src={bgImg} alt="working illustration" />
+          </div>
           <div className="hero__content">
             <h1 className="hero__title">More than just shorter links</h1>
             <p className="hero__description">
