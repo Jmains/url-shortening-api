@@ -12,9 +12,7 @@ export default function Navbar() {
   };
 
   const handleEscape = (ev) => {
-    if (ev.key === "Esc" || ev.key === "Escape") {
-      setNavIsToggled(false);
-    }
+    if (ev.key === "Esc" || ev.key === "Escape") setNavIsToggled(false);
   };
 
   useEffect(() => {
@@ -42,45 +40,35 @@ export default function Navbar() {
         scrolled: hasScrolled,
       })}
     >
-      <nav className="nav container">
+      <nav role="navigation" className="nav container">
         <a className="nav__logo" href="/">
           Shortly
         </a>
         <button
           type="button"
           onClick={handleNavToggle}
-          class="nav-toggle"
+          className="nav-toggle"
           aria-expanded={navIsToggled}
           aria-label="open navigation"
         >
-          <span
-            class={cn("hamburger ", {
-              "hamburger-toggled": navIsToggled,
-            })}
-          ></span>
+          <span className={cn("hamburger ", { "hamburger-toggled": navIsToggled })} />
         </button>
 
-        <div
-          className={navIsToggled ? "nav__listContainer nav--visible" : "nav__listContainer"}
-        >
-          <button
-            tabIndex="-1"
-            onClick={handleNavToggle}
-            className="nav__dropdown-exit"
-          ></button>
-          <ul className="nav__list-pri">
-            <li class="nav__item">
-              <a class="nav__link" href="/" tabIndex="0">
+        <div className={cn("nav__listContainer ", { "nav--visible": navIsToggled })}>
+          <button tabIndex="-1" onClick={handleNavToggle} className="nav__dropdown-exit" />
+          <ul aria-orientation="vertical" role="menu" className="nav__list-pri">
+            <li className="nav__item">
+              <a role="menuitem" className="nav__link" href="/" tabIndex="0">
                 Features
               </a>
             </li>
-            <li class="nav__item">
-              <a tabIndex="0" class="nav__link" href="/home">
+            <li className="nav__item">
+              <a role="menuitem" id="pricing" tabIndex="0" className="nav__link" href="/">
                 Pricing
               </a>
             </li>
-            <li tabIndex="0" class="nav__item">
-              <a class="nav__link" href="/">
+            <li className="nav__item">
+              <a role="menuitem" className="nav__link" href="/" tabIndex="0">
                 Resources
               </a>
             </li>
@@ -89,13 +77,13 @@ export default function Navbar() {
           <div role="separator" className="nav__item nav__item--divider"></div>
 
           <ul className="nav__list-sec">
-            <li class="nav__item">
-              <a tabIndex="0" class="nav__link" href="/home">
+            <li className="nav__item">
+              <a tabIndex="0" className="nav__link" href="/">
                 Login
               </a>
             </li>
-            <li class="nav__item">
-              <a tabIndex="0" class="nav__link nav__link--signup" href="/">
+            <li className="nav__item">
+              <a tabIndex="0" className="nav__link nav__link--signup" href="/">
                 Sign Up
               </a>
             </li>
