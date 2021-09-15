@@ -17,6 +17,7 @@ export default function LinkCard({ originalLink, shortLink }) {
         </a>
         <CopyToClipboard text={shortLink} onCopy={() => setCopied(true)}>
           <button
+            disabled={copied}
             className={cn("link__card--copyLinkBtn ", {
               "link__card--copyLinkBtn-copied": copied,
             })}

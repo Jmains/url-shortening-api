@@ -67,7 +67,7 @@
     justify-content: space-between;
     background-image: url("../../images/bg-shorten-desktop.svg");
     background-repeat: no-repeat;
-    background-position: top right;
+    background-size: cover;
     padding: 2.5rem;
   }
 
