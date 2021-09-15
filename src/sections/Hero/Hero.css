@@ -5,12 +5,19 @@
 }
 
 .hero__content {
+  margin: 0 auto;
   margin-top: 2rem;
   text-align: center;
+  max-width: 36rem;
 }
 
 .hero__img {
-  max-width: 100%;
+  width: 100%;
+  max-width: 500px;
+}
+
+.align-center {
+  text-align: center;
 }
 
 .hero__title {
@@ -51,6 +58,7 @@
   .hero__content {
     text-align: left;
     order: -1;
+    margin: 0;
     max-width: 48%;
   }
 
