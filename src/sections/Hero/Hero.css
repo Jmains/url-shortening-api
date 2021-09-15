@@ -1,5 +1,4 @@
 .hero {
-  /* overflow-x: hidden; */
   padding-bottom: 10rem;
   padding-top: 3rem;
 }
@@ -14,6 +13,25 @@
 .hero__img {
   width: 100%;
   max-width: 500px;
+  animation: slideUpDown 5s ease-in-out infinite;
+}
+
+@keyframes slideUpDown {
+  0% {
+    transform: translateY(-10px) translateX(-10px);
+  }
+  25% {
+    transform: translateY(-7px) translateX(-7px);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-10px);
+  }
+  75% {
+    transform: translateY(-7px) translateX(-7px);
+  }
+  100% {
+    transform: translateY(-10px) translateX(-10px);
+  }
 }
 
 .align-center {
@@ -48,7 +66,8 @@
 
 @media only screen and (min-width: 1100px) {
   .hero {
-    padding-top: 4rem;
+    padding-top: 5rem;
+    padding-bottom: 12rem;
   }
   .hero__contentContainer {
     display: flex;

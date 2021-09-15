@@ -18,7 +18,6 @@ export default function Hero() {
             <button className="hero__cta">Get Started</button>
           </div>
         </div>
-        {/* <WorkingIllustration width="40rem" /> */}
       </div>
     </section>
   );
