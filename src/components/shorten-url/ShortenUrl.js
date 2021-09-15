@@ -2,24 +2,26 @@ import { useEffect, useState } from "react";
 import LinkCard from "./LinkCard/LinkCard";
 import "./ShortenUrl.css";
 import cn from "classnames";
+import Loader from "react-loader-spinner";
 
 const fetchShortLink = async (link) => {
-  const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${link}`, {
-    method: "POST",
-  });
+  const cleanedLink = link.trim();
+  const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${cleanedLink}`);
   return await res.json();
 };
 
 export default function ShortenUrl() {
   const [link, setLink] = useState("");
-  const [apiLinks, setApiLinks] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [apiLinks, setApiLinks] = useState([]);
 
   useEffect(() => {
     const shortLinks = sessionStorage.getItem("short_links");
+    // Restore links and form field on refresh
     if (shortLinks) {
       setApiLinks(JSON.parse(shortLinks));
+      setLink(JSON.parse(shortLinks)[0].result.original_link);
     }
   }, []);
 
@@ -32,23 +34,19 @@ export default function ShortenUrl() {
       return;
     }
 
-    setLoading(true);
+    setIsLoading(true);
+
     fetchShortLink(link)
-      .then((responseData) => {
-        if (responseData.ok) {
-          setApiLinks((prevApiLinks) => [responseData, ...prevApiLinks]);
-          sessionStorage.setItem(
-            "short_links",
-            JSON.stringify([responseData, ...apiLinks], null, 2)
-          );
-        } else {
-          setError(responseData.error);
-        }
+      .then((data) => {
+        if (!data.ok) throw new Error(data.error);
+        setApiLinks((prevData) => [data, ...prevData]);
+        sessionStorage.setItem("short_links", JSON.stringify([data, ...apiLinks], null, 2));
+        setIsLoading(false);
       })
       .catch((err) => {
-        console.log("something went wrong...", err);
+        setIsLoading(false);
+        setError(err.message);
       });
-    setLoading(false);
   };
 
   const handleLinkChange = (ev) => {
@@ -71,23 +69,23 @@ export default function ShortenUrl() {
             />
             {error && <span className="short__form--error">{error}</span>}
           </div>
-          <button className="shorten__btn" type="submit">
-            {loading ? "loading..." : "Shorten It!"}
+          <button disabled={isLoading} className="shorten__btn" type="submit">
+            {isLoading ? (
+              <Loader type="Oval" radius="10" color="white" height={20} width={20} />
+            ) : (
+              "Shorten It!"
+            )}
           </button>
         </form>
-        {apiLinks.length > 0 &&
-          apiLinks.map((link) => {
+        {apiLinks?.length > 0 &&
+          apiLinks?.map((link) => {
             return (
-              <>
-                {link.ok && (
-                  <div key={link.result.full_short_link}>
-                    <LinkCard
-                      originalLink={link.result.original_link}
-                      shortLink={link.result.full_short_link}
-                    />
-                  </div>
-                )}
-              </>
+              <div key={link.result.code}>
+                <LinkCard
+                  originalLink={link.result.original_link}
+                  shortLink={link.result.full_short_link}
+                />
+              </div>
             );
           })}
       </div>
