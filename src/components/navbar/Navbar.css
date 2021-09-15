@@ -54,7 +54,6 @@
 .nav__listContainer {
   position: absolute;
   visibility: hidden;
-
   opacity: 0;
   background: var(--pri-darkViolet);
   top: 6rem;
@@ -82,14 +81,14 @@
 
 .nav__link {
   color: rgb(255, 255, 255);
-  cursor: pointer;
   font-weight: 700;
   transition-property: color;
   transition-duration: 150ms;
   transition-timing-function: ease-in-out;
 }
 
-.nav__link:hover {
+.nav__link:hover,
+.nav__link:focus {
   color: var(--pri-cyan);
 }
 
@@ -217,7 +216,8 @@
     color: var(--gray);
   }
 
-  .nav__link:hover {
+  .nav__link:hover,
+  .nav__link:focus {
     color: var(--darkBlue);
   }
 
