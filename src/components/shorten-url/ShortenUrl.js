@@ -2,35 +2,7 @@ import { useEffect, useState } from "react";
 import LinkCard from "./LinkCard/LinkCard";
 import "./ShortenUrl.css";
 import cn from "classnames";
-
-// const getWeatherData = async () => {
-//   try {
-//     const res = await fetch(apiUrl);
-//     if (!res.ok) {
-//       throw new Error(`The status of the response is: ${res.status}`);
-//     }
-//     const data = await res.json();
-
-//     const dataArr = data.list.filter(isDesiredIndex).map((d) => {
-//       const { dt_txt, main, weather } = d;
-
-//       const icon = weather[0].icon.slice(0, -1);
-//       const min = main.temp_min.toFixed();
-//       const max = main.temp_max.toFixed();
-//       const date = new Date(dt_txt).toLocaleDateString('en-US', {
-//         weekday: 'short',
-//       });
-
-//       return { date, max, min, icon };
-//     });
-
-//     setData(dataArr);
-//     setIsLoading(false);
-//   } catch (err) {
-//     setError(err.message);
-//     setIsLoading(false);
-//   }
-// };
+import Loader from "react-loader-spinner";
 
 const fetchShortLink = async (link) => {
   const cleanedLink = link.trim();
@@ -40,14 +12,16 @@ const fetchShortLink = async (link) => {
 
 export default function ShortenUrl() {
   const [link, setLink] = useState("");
-  const [apiLinks, setApiLinks] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [apiLinks, setApiLinks] = useState([]);
 
   useEffect(() => {
     const shortLinks = sessionStorage.getItem("short_links");
+    // Restore links and form field on refresh
     if (shortLinks) {
       setApiLinks(JSON.parse(shortLinks));
+      setLink(JSON.parse(shortLinks)[0].result.original_link);
     }
   }, []);
 
@@ -95,23 +69,23 @@ export default function ShortenUrl() {
             />
             {error && <span className="short__form--error">{error}</span>}
           </div>
-          <button className="shorten__btn" type="submit">
-            {isLoading ? "loading..." : "Shorten It!"}
+          <button disabled={isLoading} className="shorten__btn" type="submit">
+            {isLoading ? (
+              <Loader type="Oval" radius="10" color="white" height={20} width={20} />
+            ) : (
+              "Shorten It!"
+            )}
           </button>
         </form>
         {apiLinks?.length > 0 &&
           apiLinks?.map((link) => {
             return (
-              <>
-                {link.ok && (
-                  <div key={link.result.full_short_link}>
-                    <LinkCard
-                      originalLink={link.result.original_link}
-                      shortLink={link.result.full_short_link}
-                    />
-                  </div>
-                )}
-              </>
+              <div key={link.result.code}>
+                <LinkCard
+                  originalLink={link.result.original_link}
+                  shortLink={link.result.full_short_link}
+                />
+              </div>
             );
           })}
       </div>
